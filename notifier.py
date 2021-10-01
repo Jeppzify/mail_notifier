@@ -12,16 +12,15 @@ import sys
 
 port = 587
 smtp_server = "smtp.gmail.com"
-sender = "jscds07@gmail.com"
-receivers = "jscds07@gmail.com"
-password = sys.argv[1]
+email = sys.argv[1]
+password = sys.argv[2]
 context = ssl.create_default_context()
 
 
-message = """\
+message = f"""\
 	Subject: BotAlert!
-	To: jscds07@gmail.com
-	From: jscds07@gmail.com
+	To: {email}
+	From: {email}
 
 	Message from bot: Site is available!
 """
@@ -31,8 +30,8 @@ def mail_me():
 		#send your message with credentials specified above
 		server = smtplib.SMTP(smtp_server, port)
 		server.starttls(context=context)
-		server.login(sender, password)
-		server.sendmail(sender, receivers, message)
+		server.login(email, password)
+		server.sendmail(email, email, message)
 
 		# tell the script to report if your message was sent or which errors need to be fixed
 		print('Sent')

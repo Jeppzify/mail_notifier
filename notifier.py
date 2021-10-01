@@ -6,7 +6,7 @@ import ssl
 import requests
 import sys
 
-# For testing:
+# For testing with local server:
 #port = 25
 #smtp_server = "localhost"
 
@@ -23,7 +23,7 @@ message = """\
 	To: jscds07@gmail.com
 	From: jscds07@gmail.com
 
-	Message from bot
+	Message from bot: Site is available!
 """
 
 def mail_me():
